@@ -1,0 +1,14 @@
+[project]
+name = "FortranSemantics"
+version = "0.1.0"
+description = "A python library to parse Fortran projects and offer feasibility to query and generate python codes"
+readme = "README.md"
+requires-python = ">=3.11"
+
+dependencies = [
+    "fparser",
+    "pydantic",
+    "pytest",
+    "sqlalchemy",
+    "dataclasses_json"
+]
