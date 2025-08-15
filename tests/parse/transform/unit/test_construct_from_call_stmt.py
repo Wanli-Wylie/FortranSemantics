@@ -1,6 +1,6 @@
 from tests.helpers import parse_fortran_to_ast
-from Fortran2.tasks.parse_fortran.etl.transform.unit.reference_entry import from_call_stmt
-from Fortran2.data_models.fortran import (
+from FortranSemantics.tasks.parse.transform.unit.reference_entry import from_call_stmt
+from FortranSemantics.data_models.fortran import (
     SymbolReferenceRead,
 )
 
@@ -49,3 +49,4 @@ def test_empty_call_stmt():
     stmt = create_call_stmt_from_code("call func()")
     result = from_call_stmt(stmt)
     assert len(result) == 0
+

@@ -1,6 +1,6 @@
 from tests.helpers import parse_fortran_to_ast
-from Fortran2.tasks.parse_fortran.etl.transform.unit.reference_entry import from_assignment_stmt
-from Fortran2.data_models.fortran import (
+from FortranSemantics.tasks.parse.transform.unit.reference_entry import from_assignment_stmt
+from FortranSemantics.data_models.fortran import (
     SymbolReferenceRead,
     SymbolReferenceWrite,
 )
@@ -72,3 +72,4 @@ def test_complex_assignment():
 
     for ref in refs:
         assert ref.line == line_no
+
