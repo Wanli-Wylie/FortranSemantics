@@ -43,16 +43,16 @@ END MODULE TEST
 
 
 def get_module_ast(filename: str):
-    path = Path("example/basic") / filename
+    path = Path("examples/basic") / filename
     with open(path, "r", encoding="utf-8") as f:
         src = f.read()
     program_ast = parse_fortran_to_ast(src)
     return program_ast.children[0]
 
 def get_all_f90_files():
-    return list(Path("example/basic").glob("*.f90"))
+    return list(Path("examples/basic").glob("*.f90"))
 
 def get_example_project_dependency_graph():
-    from Fortran2.infrastructure.etl.load.to_memory import load_to_memory
-    _, dependency_graph = load_to_memory(get_all_f90_files())
-    return dependency_graph
+    """Placeholder for dependency graph generation."""
+    return None
+

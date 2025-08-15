@@ -1,5 +1,5 @@
-from Fortran2.tasks.parse_fortran.etl.transform.scope.reference_table import ReferenceTableTransformer
-from Fortran2.data_models.fortran import SymbolReferenceRead, SymbolReferenceWrite
+from FortranSemantics.tasks.parse.transform.scope.reference_table import ReferenceTableTransformer
+from FortranSemantics.data_models.fortran import SymbolReferenceRead, SymbolReferenceWrite
 from tests.helpers import parse_fortran_to_ast
 
 
@@ -59,3 +59,4 @@ def test_reference_table_complex_stmt():
 
     for ref in refs:
         assert ref.line == line_no
+

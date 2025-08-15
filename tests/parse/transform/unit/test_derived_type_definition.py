@@ -1,7 +1,7 @@
 from fparser.two.Fortran2003 import Derived_Type_Def, Data_Component_Def_Stmt
-from Fortran2.tasks.parse_fortran.etl.transform.unit.derived_type_definition import from_derived_type_definition
+from FortranSemantics.tasks.parse.transform.unit.derived_type_definition import from_derived_type_definition
 from tests.helpers import parse_fortran_to_ast, insert_content_into_module
-from Fortran2.data_models.fortran.attr_spec import DimKind
+from FortranSemantics.data_models.fortran.attr_spec import DimKind
 
 def create_derived_type_from_str(content: str) -> Derived_Type_Def:
     """Helper function to create derived type definition from a string"""

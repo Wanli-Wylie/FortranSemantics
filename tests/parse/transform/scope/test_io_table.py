@@ -1,5 +1,5 @@
 from tests.helpers import parse_fortran_to_ast
-from Fortran2.tasks.parse_fortran.etl.transform.scope.io_table import IOTableTransformer
+from FortranSemantics.tasks.parse.transform.scope.io_table import IOTableTransformer
 
 
 def _get_subprogram_ast():

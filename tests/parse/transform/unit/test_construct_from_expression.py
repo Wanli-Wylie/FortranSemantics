@@ -1,6 +1,6 @@
 from tests.helpers import parse_fortran_to_ast
-from Fortran2.tasks.parse_fortran.etl.transform.unit.reference_entry import from_expression, from_designator
-from Fortran2.data_models.fortran import (
+from FortranSemantics.tasks.parse.transform.unit.reference_entry import from_expression, from_designator
+from FortranSemantics.data_models.fortran import (
     SymbolReferenceRead,
     SymbolReferenceWrite
 )
@@ -139,3 +139,4 @@ def test_parenthesis_expression():
     assert len(refs) == 1
     assert refs[0].name == "arg2"
     assert isinstance(refs[0], SymbolReferenceRead)
+

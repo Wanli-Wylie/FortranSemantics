@@ -2,9 +2,9 @@ import pytest
 from fparser.two.Fortran2003 import (
     Attr_Spec_List
 )
-from Fortran2.tasks.parse_fortran.etl.transform.attrs.process_attr_specs import process_attr_specs
+from FortranSemantics.tasks.parse.transform.attrs.process_attr_specs import process_attr_specs
 from tests.helpers import parse_fortran_to_ast, insert_content_into_module
-from Fortran2.data_models.fortran.attr_spec import DimKind
+from FortranSemantics.data_models.fortran.attr_spec import DimKind
 
 def create_attr_spec_from_declaration(decl_str: str) -> Attr_Spec_List:
     """Helper function to create attribute specification from a declaration string"""

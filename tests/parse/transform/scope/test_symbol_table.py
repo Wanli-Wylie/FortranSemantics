@@ -1,9 +1,10 @@
 from fparser.two.Fortran2003 import Type_Declaration_Stmt
-from Fortran2.tasks.parse_fortran.etl.transform.scope.symbol_table import SymbolTableTransformer
-from Fortran2.utils.get_parts import get_specification_part, get_subprogram_part
+from FortranSemantics.tasks.parse.transform.scope.symbol_table import SymbolTableTransformer
+from FortranSemantics.tasks.parse.transform.utils.get_specification_part import get_specification_part
+from FortranSemantics.tasks.parse.transform.utils.get_subprograms import get_subprogram_part
 from tests.helpers import parse_fortran_to_ast, insert_content_into_module
 from pathlib import Path
-from fparser.two.Fortran2003 import Function_Subprogram
+from fparser.two.Fortran2003 import Function_Subprogram, Type_Declaration_Stmt
 
 
 def create_type_declaration_from_string(decl_str: str) -> Type_Declaration_Stmt:
@@ -29,7 +30,7 @@ end subroutine my_sub
 
 
 def _get_module_ast(name: str):
-    src = Path("example/basic") / name
+    src = Path("examples/basic") / name
     code = src.read_text()
     ast = parse_fortran_to_ast(code)
     return ast.children[0]

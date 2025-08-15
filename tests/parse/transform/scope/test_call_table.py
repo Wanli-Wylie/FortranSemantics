@@ -1,8 +1,8 @@
 import pytest
 from tests.helpers import parse_fortran_to_ast
-from Fortran2.tasks.parse_fortran.etl.transform.scope.call_table import CallTableTransformer
-from Fortran2.tasks.parse_fortran.etl.transform.unit.calls import from_call_stmt
-from Fortran2.data_models.fortran import SymbolReferenceRead
+from FortranSemantics.tasks.parse.transform.scope.call_table import CallTableTransformer
+from FortranSemantics.tasks.parse.transform.unit.calls import from_call_stmt
+from FortranSemantics.data_models.fortran import SymbolReferenceRead
 
 
 def _get_subprogram_ast():
