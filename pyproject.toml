@@ -1,5 +1,5 @@
 [project]
-name = "FortranSemantics"
+name = "forge"
 version = "0.1.0"
 description = "A python library to parse Fortran projects and offer feasibility to query and generate python codes"
 readme = "README.md"
@@ -10,5 +10,7 @@ dependencies = [
     "pydantic",
     "pytest",
     "sqlalchemy",
+    "rich",
+    "typer[all]"
     "dataclasses_json"
 ]

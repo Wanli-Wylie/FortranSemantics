@@ -1,6 +1,6 @@
 import pytest
 from fparser.two.Fortran2003 import Intrinsic_Type_Spec, Declaration_Type_Spec
-from FortranSemantics.tasks.parse.transform.attrs.process_type_spec import process_type_spec
+from forge.tasks.parse.transform.attrs.process_type_spec import process_type_spec
 
 def test_intrinsic_type_spec():
     """Test processing of intrinsic type specifications"""

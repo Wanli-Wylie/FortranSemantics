@@ -1,5 +1,5 @@
-from FortranSemantics.tasks.parse.extract import extract_from_fortran_string, pickup_module_ast
-from FortranSemantics.tasks.parse.transform.scope.signature import SignatureTransformer, FormalParameter
+from forge.tasks.parse.extract import extract_from_fortran_string, pickup_module_ast
+from forge.tasks.parse.transform.scope.signature import SignatureTransformer, FormalParameter
 
 def _get_first_subprogram(src: str):
     ast = extract_from_fortran_string(src)

@@ -1,7 +1,7 @@
 from fparser.two.Fortran2003 import Type_Declaration_Stmt
-from FortranSemantics.tasks.parse.transform.scope.symbol_table import SymbolTableTransformer
-from FortranSemantics.tasks.parse.transform.utils.get_specification_part import get_specification_part
-from FortranSemantics.tasks.parse.transform.utils.get_subprograms import get_subprogram_part
+from forge.tasks.parse.transform.scope.symbol_table import SymbolTableTransformer
+from forge.tasks.parse.transform.utils.get_specification_part import get_specification_part
+from forge.tasks.parse.transform.utils.get_subprograms import get_subprogram_part
 from tests.helpers import parse_fortran_to_ast, insert_content_into_module
 from pathlib import Path
 from fparser.two.Fortran2003 import Function_Subprogram, Type_Declaration_Stmt

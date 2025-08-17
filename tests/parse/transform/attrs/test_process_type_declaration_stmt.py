@@ -3,9 +3,9 @@ from fparser.two.Fortran2003 import (
     Type_Declaration_Stmt,
     Program
 )
-from FortranSemantics.tasks.parse.transform.unit.declared_entity import from_type_declaration_stmt
+from forge.tasks.parse.transform.unit.declared_entity import from_type_declaration_stmt
 from tests.helpers import parse_fortran_to_ast, insert_content_into_module
-from FortranSemantics.data_models.fortran.attr_spec import DimKind
+from forge.data_models.fortran.attr_spec import DimKind
 
 def create_type_declaration_from_string(decl_str: str) -> Type_Declaration_Stmt:
     """Helper function to create type declaration statement from a declaration string"""
