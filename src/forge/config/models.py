@@ -1,93 +1,59 @@
-# src/forge/config/models.py
-
+# config/models.py
 """
-Pydantic models for the `forge.toml` configuration file.
-
-These models define the schema, default values, and validation rules for all
-project settings.
+This module defines Pydantic models for validating and representing forge.toml configuration files.
 """
-
-from typing import List, Literal, Optional
-
 from pydantic import BaseModel, Field
+from typing import Optional
 
-# Define literal types for fields with a fixed set of allowed values.
-ParserType = Literal["fparser", "lfortran"]
-DatabaseDialect = Literal["sqlite", "postgresql", "mysql"]
-LoadInitMode = Literal["recreate", "append"]
-
-
-class ProjectConfig(BaseModel):
-    """Schema for the `[project]` section of forge.toml."""
+class ProjectModel(BaseModel):
+    """Configuration corresponding to the [project] table"""
     name: str = Field(
         ...,
-        description="The name of the project."
+        description="The name of the project, must be specified.",
+        examples=["CFD_Project_Typhoon"]
     )
-    fortran_version: Optional[str] = Field(
+    description: Optional[str] = Field(
         None,
-        description="The Fortran standard version (e.g., '2008'). Informational only."
+        description="A brief description of the project."
     )
-    source_directories: List[str] = Field(
-        default=["src"],
-        description="A list of directories containing Fortran source files."
-    )
-    exclude_patterns: List[str] = Field(
-        default=[],
-        description="A list of glob patterns to exclude from source file discovery."
+    fortran_standard: Optional[str] = Field(
+        None,
+        description="The Fortran standard that the code follows (e.g., 'F2008')."
     )
 
-
-class ExtractStageConfig(BaseModel):
-    """Schema for the `[stage.extract]` section."""
-    parser: ParserType = Field(
-        default="fparser",
-        description="The Fortran parser to use for analysis."
-    )
-    num_workers: int = Field(
-        default=0,
-        ge=0,
-        description="Number of parallel processes for parsing. 0 means use all available CPU cores."
-    )
-
-
-class TransformStageConfig(BaseModel):
-    """Schema for the `[stage.transform]` section."""
-    resolve_macros: bool = Field(
-        default=True,
-        description="Whether to attempt resolving preprocessor macros during transformation."
-    )
-
-
-class LoadStageConfig(BaseModel):
-    """Schema for the `[stage.load]` section."""
-    dialect: DatabaseDialect = Field(
-        default="sqlite",
-        description="The dialect of the target SQL database."
-    )
-    url: str = Field(
+class SourcesModel(BaseModel):
+    """
+    Configuration corresponding to the [sources] table
+    """
+    source_dirs: list[str] = Field(
         ...,
-        description=(
-            "The database connection URL. "
-            "Supports environment variable substitution, e.g., '${DB_PASSWORD}'."
-        )
+        description="List of directories containing source code."
     )
-    init_mode: LoadInitMode = Field(
-        default="recreate",
-        description=(
-            "Action to take before loading data: "
-            "'recreate' drops and recreates tables, 'append' adds to existing tables."
-        )
+    include_patterns: list[str] = Field(
+        default=[
+            "**/*.f90", 
+            "**/*.F90"],
+        description="Glob patterns for including source files."
+    )
+    exclude_patterns: list[str] = Field(
+        default=[],
+        description="Glob patterns for excluding files or directories."
     )
 
-
-class StageConfig(BaseModel):
-    """Container for all stage-specific configurations."""
-    extract: ExtractStageConfig = Field(default_factory=ExtractStageConfig)
-    transform: TransformStageConfig = Field(default_factory=TransformStageConfig)
-    load: LoadStageConfig
+class ParserModel(BaseModel):
+    """
+    Configuration corresponding to the [parser] table
+    """
+    encoding: str = Field(
+        "utf-8",
+        description="The encoding format of source files."
+    )
 
 
 class ForgeConfig(BaseModel):
-    """The root model for the entire `forge.toml` configuration."""
-    project: ProjectConfig
-    stage: StageConfig
+    """
+    Top-level configuration model representing the structure of the entire forge.toml file.
+    """
+    project: ProjectModel
+    sources: SourcesModel
+    parser: ParserModel = Field(default_factory=lambda: ParserModel(encoding="utf-8"))

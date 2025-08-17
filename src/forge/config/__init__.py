@@ -7,25 +7,20 @@ This module handles the loading, validation, and representation of the `forge.to
 project configuration file.
 """
 
-from .loader import load_config, ConfigNotFoundError, EnvironmentVariableError
+from .loader import load_config, ConfigError
 from .models import (
     ForgeConfig,
-    ProjectConfig,
-    StageConfig,
-    ExtractStageConfig,
-    TransformStageConfig,
-    LoadStageConfig,
+    ProjectModel,
+    SourcesModel,
+    ParserModel,
 )
 
 # Expose key components for easy access from other parts of the application.
 __all__ = [
     "load_config",
-    "ConfigNotFoundError",
-    "EnvironmentVariableError",
+    "ConfigError",
     "ForgeConfig",
-    "ProjectConfig",
-    "StageConfig",
-    "ExtractStageConfig",
-    "TransformStageConfig",
-    "LoadStageConfig",
+    "ProjectModel",
+    "SourcesModel",
+    "ParserModel",
 ]
