@@ -11,6 +11,6 @@ dependencies = [
     "pytest",
     "sqlalchemy",
     "rich",
-    "typer[all]"
+    "typer[all]",
     "dataclasses_json"
 ]

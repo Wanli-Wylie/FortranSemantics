@@ -4,7 +4,6 @@ from fparser.two.Fortran2003 import (
     Function_Subprogram,
     Assignment_Stmt,
     Implicit_Part)
-from typing import List
 from collections import deque
 from .....data_models.fortran.reference_entry import (
     SymbolReferenceRead,
