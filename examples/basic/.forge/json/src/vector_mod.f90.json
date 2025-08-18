@@ -1,4 +1,517 @@
 {
-    "modules": {},
-    "subprograms": {}
+    "modules": {
+        "vector_mod": {
+            "symbol_table": {},
+            "derived_types": {
+                "vector3_t": {
+                    "name": "vector3_t",
+                    "declared_components": {
+                        "x": {
+                            "name": "x",
+                            "line_declared": 9,
+                            "type_declared": "REAL",
+                            "attributes": {
+                                "array_spec": null,
+                                "intent": null,
+                                "additional_keywords": null
+                            },
+                            "initial_value": null
+                        },
+                        "y": {
+                            "name": "y",
+                            "line_declared": 9,
+                            "type_declared": "REAL",
+                            "attributes": {
+                                "array_spec": null,
+                                "intent": null,
+                                "additional_keywords": null
+                            },
+                            "initial_value": null
+                        },
+                        "z": {
+                            "name": "z",
+                            "line_declared": 9,
+                            "type_declared": "REAL",
+                            "attributes": {
+                                "array_spec": null,
+                                "intent": null,
+                                "additional_keywords": null
+                            },
+                            "initial_value": null
+                        }
+                    }
+                }
+            },
+            "references": [],
+            "calls": [],
+            "used_modules": []
+        }
+    },
+    "subprograms": {
+        "vector_mod::plus": {
+            "symbol_table": {
+                "a": {
+                    "name": "a",
+                    "line_declared": 14,
+                    "type_declared": "TYPE-VECTOR3_T",
+                    "attributes": {
+                        "array_spec": null,
+                        "intent": "in",
+                        "additional_keywords": []
+                    },
+                    "initial_value": null
+                },
+                "b": {
+                    "name": "b",
+                    "line_declared": 14,
+                    "type_declared": "TYPE-VECTOR3_T",
+                    "attributes": {
+                        "array_spec": null,
+                        "intent": "in",
+                        "additional_keywords": []
+                    },
+                    "initial_value": null
+                }
+            },
+            "derived_types": {},
+            "references": [
+                {
+                    "name": "c",
+                    "line": 15,
+                    "resolved_symbol": "",
+                    "is_part_ref": false,
+                    "component_name": [
+                        "x"
+                    ]
+                },
+                {
+                    "name": "b",
+                    "line": 15,
+                    "resolved_symbol": "",
+                    "is_part_ref": false,
+                    "component_name": [
+                        "x"
+                    ]
+                },
+                {
+                    "name": "a",
+                    "line": 15,
+                    "resolved_symbol": "",
+                    "is_part_ref": false,
+                    "component_name": [
+                        "x"
+                    ]
+                },
+                {
+                    "name": "c",
+                    "line": 16,
+                    "resolved_symbol": "",
+                    "is_part_ref": false,
+                    "component_name": [
+                        "y"
+                    ]
+                },
+                {
+                    "name": "b",
+                    "line": 16,
+                    "resolved_symbol": "",
+                    "is_part_ref": false,
+                    "component_name": [
+                        "y"
+                    ]
+                },
+                {
+                    "name": "a",
+                    "line": 16,
+                    "resolved_symbol": "",
+                    "is_part_ref": false,
+                    "component_name": [
+                        "y"
+                    ]
+                },
+                {
+                    "name": "c",
+                    "line": 17,
+                    "resolved_symbol": "",
+                    "is_part_ref": false,
+                    "component_name": [
+                        "z"
+                    ]
+                },
+                {
+                    "name": "b",
+                    "line": 17,
+                    "resolved_symbol": "",
+                    "is_part_ref": false,
+                    "component_name": [
+                        "z"
+                    ]
+                },
+                {
+                    "name": "a",
+                    "line": 17,
+                    "resolved_symbol": "",
+                    "is_part_ref": false,
+                    "component_name": [
+                        "z"
+                    ]
+                }
+            ],
+            "calls": [],
+            "ios": [],
+            "signature": {
+                "inputs": {
+                    "a": {
+                        "name": "a",
+                        "type": "TYPE-VECTOR3_T"
+                    },
+                    "b": {
+                        "name": "b",
+                        "type": "TYPE-VECTOR3_T"
+                    }
+                },
+                "output": {
+                    "name": "c",
+                    "type": "TYPE(vector3_t)"
+                },
+                "result_var_same_as_name": false
+            },
+            "used_modules": []
+        },
+        "vector_mod::magnitude": {
+            "symbol_table": {
+                "v": {
+                    "name": "v",
+                    "line_declared": 21,
+                    "type_declared": "TYPE-VECTOR3_T",
+                    "attributes": {
+                        "array_spec": null,
+                        "intent": "in",
+                        "additional_keywords": []
+                    },
+                    "initial_value": null
+                }
+            },
+            "derived_types": {},
+            "references": [
+                {
+                    "name": "mag",
+                    "line": 22,
+                    "resolved_symbol": "",
+                    "is_part_ref": false,
+                    "component_name": null
+                }
+            ],
+            "calls": [],
+            "ios": [],
+            "signature": {
+                "inputs": {
+                    "v": {
+                        "name": "v",
+                        "type": "TYPE-VECTOR3_T"
+                    }
+                },
+                "output": {
+                    "name": "mag",
+                    "type": "REAL"
+                },
+                "result_var_same_as_name": false
+            },
+            "used_modules": []
+        },
+        "vector_mod::inner_product": {
+            "symbol_table": {
+                "a": {
+                    "name": "a",
+                    "line_declared": 26,
+                    "type_declared": "TYPE-VECTOR3_T",
+                    "attributes": {
+                        "array_spec": null,
+                        "intent": "in",
+                        "additional_keywords": []
+                    },
+                    "initial_value": null
+                },
+                "b": {
+                    "name": "b",
+                    "line_declared": 26,
+                    "type_declared": "TYPE-VECTOR3_T",
+                    "attributes": {
+                        "array_spec": null,
+                        "intent": "in",
+                        "additional_keywords": []
+                    },
+                    "initial_value": null
+                }
+            },
+            "derived_types": {},
+            "references": [
+                {
+                    "name": "d",
+                    "line": 27,
+                    "resolved_symbol": "",
+                    "is_part_ref": false,
+                    "component_name": null
+                },
+                {
+                    "name": "b",
+                    "line": 27,
+                    "resolved_symbol": "",
+                    "is_part_ref": false,
+                    "component_name": [
+                        "z"
+                    ]
+                },
+                {
+                    "name": "a",
+                    "line": 27,
+                    "resolved_symbol": "",
+                    "is_part_ref": false,
+                    "component_name": [
+                        "z"
+                    ]
+                },
+                {
+                    "name": "b",
+                    "line": 27,
+                    "resolved_symbol": "",
+                    "is_part_ref": false,
+                    "component_name": [
+                        "y"
+                    ]
+                },
+                {
+                    "name": "a",
+                    "line": 27,
+                    "resolved_symbol": "",
+                    "is_part_ref": false,
+                    "component_name": [
+                        "y"
+                    ]
+                },
+                {
+                    "name": "b",
+                    "line": 27,
+                    "resolved_symbol": "",
+                    "is_part_ref": false,
+                    "component_name": [
+                        "x"
+                    ]
+                },
+                {
+                    "name": "a",
+                    "line": 27,
+                    "resolved_symbol": "",
+                    "is_part_ref": false,
+                    "component_name": [
+                        "x"
+                    ]
+                }
+            ],
+            "calls": [],
+            "ios": [],
+            "signature": {
+                "inputs": {
+                    "a": {
+                        "name": "a",
+                        "type": "TYPE-VECTOR3_T"
+                    },
+                    "b": {
+                        "name": "b",
+                        "type": "TYPE-VECTOR3_T"
+                    }
+                },
+                "output": {
+                    "name": "d",
+                    "type": "REAL"
+                },
+                "result_var_same_as_name": false
+            },
+            "used_modules": []
+        },
+        "vector_mod::cross_product": {
+            "symbol_table": {
+                "a": {
+                    "name": "a",
+                    "line_declared": 31,
+                    "type_declared": "TYPE-VECTOR3_T",
+                    "attributes": {
+                        "array_spec": null,
+                        "intent": "in",
+                        "additional_keywords": []
+                    },
+                    "initial_value": null
+                },
+                "b": {
+                    "name": "b",
+                    "line_declared": 31,
+                    "type_declared": "TYPE-VECTOR3_T",
+                    "attributes": {
+                        "array_spec": null,
+                        "intent": "in",
+                        "additional_keywords": []
+                    },
+                    "initial_value": null
+                }
+            },
+            "derived_types": {},
+            "references": [
+                {
+                    "name": "c",
+                    "line": 32,
+                    "resolved_symbol": "",
+                    "is_part_ref": false,
+                    "component_name": [
+                        "x"
+                    ]
+                },
+                {
+                    "name": "b",
+                    "line": 32,
+                    "resolved_symbol": "",
+                    "is_part_ref": false,
+                    "component_name": [
+                        "y"
+                    ]
+                },
+                {
+                    "name": "a",
+                    "line": 32,
+                    "resolved_symbol": "",
+                    "is_part_ref": false,
+                    "component_name": [
+                        "z"
+                    ]
+                },
+                {
+                    "name": "b",
+                    "line": 32,
+                    "resolved_symbol": "",
+                    "is_part_ref": false,
+                    "component_name": [
+                        "z"
+                    ]
+                },
+                {
+                    "name": "a",
+                    "line": 32,
+                    "resolved_symbol": "",
+                    "is_part_ref": false,
+                    "component_name": [
+                        "y"
+                    ]
+                },
+                {
+                    "name": "c",
+                    "line": 33,
+                    "resolved_symbol": "",
+                    "is_part_ref": false,
+                    "component_name": [
+                        "y"
+                    ]
+                },
+                {
+                    "name": "b",
+                    "line": 33,
+                    "resolved_symbol": "",
+                    "is_part_ref": false,
+                    "component_name": [
+                        "z"
+                    ]
+                },
+                {
+                    "name": "a",
+                    "line": 33,
+                    "resolved_symbol": "",
+                    "is_part_ref": false,
+                    "component_name": [
+                        "x"
+                    ]
+                },
+                {
+                    "name": "b",
+                    "line": 33,
+                    "resolved_symbol": "",
+                    "is_part_ref": false,
+                    "component_name": [
+                        "x"
+                    ]
+                },
+                {
+                    "name": "a",
+                    "line": 33,
+                    "resolved_symbol": "",
+                    "is_part_ref": false,
+                    "component_name": [
+                        "z"
+                    ]
+                },
+                {
+                    "name": "c",
+                    "line": 34,
+                    "resolved_symbol": "",
+                    "is_part_ref": false,
+                    "component_name": [
+                        "z"
+                    ]
+                },
+                {
+                    "name": "b",
+                    "line": 34,
+                    "resolved_symbol": "",
+                    "is_part_ref": false,
+                    "component_name": [
+                        "x"
+                    ]
+                },
+                {
+                    "name": "a",
+                    "line": 34,
+                    "resolved_symbol": "",
+                    "is_part_ref": false,
+                    "component_name": [
+                        "y"
+                    ]
+                },
+                {
+                    "name": "b",
+                    "line": 34,
+                    "resolved_symbol": "",
+                    "is_part_ref": false,
+                    "component_name": [
+                        "y"
+                    ]
+                },
+                {
+                    "name": "a",
+                    "line": 34,
+                    "resolved_symbol": "",
+                    "is_part_ref": false,
+                    "component_name": [
+                        "x"
+                    ]
+                }
+            ],
+            "calls": [],
+            "ios": [],
+            "signature": {
+                "inputs": {
+                    "a": {
+                        "name": "a",
+                        "type": "TYPE-VECTOR3_T"
+                    },
+                    "b": {
+                        "name": "b",
+                        "type": "TYPE-VECTOR3_T"
+                    }
+                },
+                "output": {
+                    "name": "c",
+                    "type": "TYPE(vector3_t)"
+                },
+                "result_var_same_as_name": false
+            },
+            "used_modules": []
+        }
+    }
 }
