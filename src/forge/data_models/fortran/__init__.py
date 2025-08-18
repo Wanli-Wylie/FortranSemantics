@@ -12,7 +12,6 @@ from .io_calls import IOCall
 from .type import FortranType
 from .signature import Signature
 from .subprogram_summary import SubprogramSummary, SubprogramType
-from .transform_results import ModuleUnit, SubprogramUnit
 
 __all__ = [
     "FortranDeclaredComponent",
@@ -30,6 +29,4 @@ __all__ = [
     "Signature",
     "SubprogramSummary",
     "SubprogramType",
-    "ModuleUnit",
-    "SubprogramUnit",
 ]
