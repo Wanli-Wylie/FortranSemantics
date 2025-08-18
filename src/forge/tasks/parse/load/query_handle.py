@@ -1,5 +1,5 @@
 from sqlalchemy.orm.session import Session
-from sqlalchemy.orm.util import aliased
+from sqlalchemy.orm import aliased
 from fpyevolve_core.keys.fortran import (
     SubprogramKey,
     ModuleKey,

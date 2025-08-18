@@ -6,7 +6,7 @@ from typing import Iterable, Mapping, Sequence
 
 from sqlalchemy.orm.session import Session
 
-from ..schema.fortrans import (
+from fpyevolve_core.db.schema.fortrans import (
     FortranCall,
     FortranDerivedType,
     FortranIOCall,
@@ -20,7 +20,7 @@ from ..schema.fortrans import (
     SubprogramType,
     SymbolReferenceType,
 )
-from ...keys import ModuleKey, SubprogramKey
+from fpyevolve_core.keys.fortran import ModuleKey, SubprogramKey
 
 from fpyevolve_core.models.fortran import (
     FortranDeclaredEntity,
