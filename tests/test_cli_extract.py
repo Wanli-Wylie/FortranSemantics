@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from pathlib import Path
+import shutil
 
 from typer.testing import CliRunner
 from sqlalchemy import create_engine
@@ -12,20 +13,14 @@ from forge.cli.main import app
 from forge.core.schema import FileRecord, FileStatus, ProjectFSMStatus, ProjectState
 
 
-def _write_sample_fortran(path: Path) -> None:
-    path.write_text(
-        """program hello\nprint *, 'hello'\nend program hello\n""",
-        encoding="utf-8",
-    )
-
-
 def test_extract_parses_files_and_updates_db() -> None:
     runner = CliRunner()
+    example_src = (
+        Path(__file__).resolve().parents[1] / "examples" / "basic" / "src"
+    )
 
     with runner.isolated_filesystem():
-        src_dir = Path("src")
-        src_dir.mkdir()
-        _write_sample_fortran(src_dir / "hello.f90")
+        shutil.copytree(example_src, Path("src"))
 
         result = runner.invoke(app, ["init"])
         assert result.exit_code == 0
@@ -34,13 +29,15 @@ def test_extract_parses_files_and_updates_db() -> None:
         assert result.exit_code == 0
 
         # AST file should be created
-        ast_path = Path(".forge/asts/src/hello.f90.ast")
+        ast_path = Path(".forge/asts/src/vector_mod.f90.ast")
         assert ast_path.is_file()
 
         # Database should contain a record for the file and project state updated
         engine = create_engine("sqlite:///.forge/forge.sqlite3")
         with Session(engine) as session:
-            fr = session.query(FileRecord).filter_by(source_path="src/hello.f90").one()
+            fr = session.query(FileRecord).filter_by(
+                source_path="src/vector_mod.f90"
+            ).one()
             assert fr.status == FileStatus.EXTRACTED
             assert fr.ast_path == str(ast_path)
 
@@ -51,9 +48,12 @@ def test_extract_parses_files_and_updates_db() -> None:
 def test_extract_accepts_max_workers_option() -> None:
     runner = CliRunner()
 
+    example_src = (
+        Path(__file__).resolve().parents[1] / "examples" / "basic" / "src"
+    )
+
     with runner.isolated_filesystem():
-        Path("src").mkdir()
-        _write_sample_fortran(Path("src/hello.f90"))
+        shutil.copytree(example_src, Path("src"))
 
         runner.invoke(app, ["init"])
 

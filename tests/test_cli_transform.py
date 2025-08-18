@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from pathlib import Path
+import shutil
 
 from typer.testing import CliRunner
 from sqlalchemy import create_engine
@@ -12,28 +13,15 @@ from forge.cli.main import app
 from forge.core.schema import FileRecord, FileStatus, ProjectFSMStatus, ProjectState
 
 
-def _write_sample_fortran(path: Path) -> None:
-    path.write_text(
-        (
-            "MODULE m\n"
-            "  INTEGER :: a\n"
-            "CONTAINS\n"
-            "  SUBROUTINE hello()\n"
-            "    PRINT *, a\n"
-            "  END SUBROUTINE hello\n"
-            "END MODULE m\n"
-        ),
-        encoding="utf-8",
-    )
-
-
 def test_transform_generates_json_and_updates_db() -> None:
     runner = CliRunner()
 
+    example_src = (
+        Path(__file__).resolve().parents[1] / "examples" / "basic" / "src"
+    )
+
     with runner.isolated_filesystem():
-        src_dir = Path("src")
-        src_dir.mkdir()
-        _write_sample_fortran(src_dir / "hello.f90")
+        shutil.copytree(example_src, Path("src"))
 
         result = runner.invoke(app, ["init"])
         assert result.exit_code == 0
@@ -44,15 +32,20 @@ def test_transform_generates_json_and_updates_db() -> None:
         result = runner.invoke(app, ["transform", "--max-workers", "1"])
         assert result.exit_code == 0
 
-        json_path = Path(".forge/json/src/hello.f90.json")
+        json_path = Path(".forge/json/src/vector_mod.f90.json")
         assert json_path.is_file()
         data = json.loads(json_path.read_text(encoding="utf-8"))
-        assert data["modules"]["m"]["symbol_table"]["a"]["type_declared"] == "INTEGER"
-        assert "m::hello" in data["subprograms"]
+        assert (
+            data["modules"]["vector_mod"]["derived_types"]["vector3_t"]["declared_components"]["x"]["type_declared"]
+            == "REAL"
+        )
+        assert "vector_mod::plus" in data["subprograms"]
 
         engine = create_engine("sqlite:///.forge/forge.sqlite3")
         with Session(engine) as session:
-            fr = session.query(FileRecord).filter_by(source_path="src/hello.f90").one()
+            fr = session.query(FileRecord).filter_by(
+                source_path="src/vector_mod.f90"
+            ).one()
             assert fr.status == FileStatus.TRANSFORMED
             assert fr.json_path == str(json_path)
 
@@ -63,9 +56,12 @@ def test_transform_generates_json_and_updates_db() -> None:
 def test_transform_accepts_max_workers_option() -> None:
     runner = CliRunner()
 
+    example_src = (
+        Path(__file__).resolve().parents[1] / "examples" / "basic" / "src"
+    )
+
     with runner.isolated_filesystem():
-        Path("src").mkdir()
-        _write_sample_fortran(Path("src/hello.f90"))
+        shutil.copytree(example_src, Path("src"))
 
         runner.invoke(app, ["init"])
         runner.invoke(app, ["extract", "--max-workers", "1"])
