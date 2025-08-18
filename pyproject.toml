@@ -1,16 +1,85 @@
-[project]
-name = "forge"
-version = "0.1.0"
-description = "A python library to parse Fortran projects and offer feasibility to query and generate python codes"
-readme = "README.md"
-requires-python = ">=3.11"
+# pyproject.toml for the Forge project
+# This file defines the project's metadata, dependencies, and tool configurations.
 
-dependencies = [
-    "fparser",
-    "pydantic",
-    "pytest",
-    "sqlalchemy",
-    "rich",
-    "typer[all]",
-    "dataclasses_json"
+[build-system]
+# Specifies the build backend Python packaging tools should use.
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+# ------------------------------------------------------------------------------
+
+[project]
+# Core project metadata (PEP 621)
+name = "fortran-forge"
+version = "0.1.0"
+description = "A CLI tool for semantic analysis and indexing of large-scale Fortran codebases."
+readme = "README.md"
+authors = [
+  { name = "Your Name", email = "your.email@example.com" },
 ]
+license = { file = "LICENSE" }
+requires-python = ">=3.9"
+
+# PyPI classifiers to help users find the project.
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Build Tools",
+    "Topic :: Software Development :: Compilers",
+    "Topic :: Utilities",
+]
+
+keywords = ["fortran", "linter", "static-analysis", "refactoring", "legacy-code", "hpc"]
+
+# Core runtime dependencies.
+dependencies = [
+    "sqlalchemy>=2.0",
+    "pydantic>=2.0",
+    "tomli>=2.0; python_version < '3.11'", # tomli is in stdlib from Python 3.11+
+    "typer>=0.9.0", # For a rich CLI experience
+    "rich>=13.0", # For beautiful console output
+    "pytest",
+    "fparser",
+    "dataclasses_json",
+
+]
+
+# Optional dependencies, installable with `pip install .[dev]`
+[project.optional-dependencies]
+dev = [
+    "fortran-forge[test]", # Include test dependencies in dev
+    "ruff==0.5.0",
+    "mypy>=1.0",
+    "pre-commit>=3.0",
+]
+test = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+]
+
+# ------------------------------------------------------------------------------
+
+[project.urls]
+Homepage = "https://github.com/Wanli-Wylie/forge"
+Repository = "https://github.com/Wanli-Wylie/forge"
+"Bug Tracker" = "https://github.com/Wanli-Wylie/forge/issues"
+
+# ------------------------------------------------------------------------------
+
+[project.scripts]
+# This creates the `forge` command-line executable that points to the main function.
+forge = "forge.cli:app" # Assumes your Typer app instance is named `app` in `forge/cli.py`
+
+# ==============================================================================
+# Tool Configurations
+# ==============================================================================
+

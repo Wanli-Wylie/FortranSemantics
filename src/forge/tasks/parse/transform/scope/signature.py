@@ -1,5 +1,4 @@
 from fparser.two.Fortran2003 import Subroutine_Subprogram, Function_Subprogram, Subroutine_Stmt, Function_Stmt, Module
-from typing import List
 from .....data_models.fortran import Signature, FormalParameter, FortranDeclaredEntity
 from ..utils import get_specification_part
 from .symbol_table import SymbolTableTransformer
@@ -39,7 +38,7 @@ class SignatureTransformer(BaseTableTransformer):
         else:
             result_name = str(func_name)
             
-        args: List[FormalParameter] = []
+        args: list[FormalParameter] = []
         for name in arg_names:
             decl = sym_tab.get(name)    
             arg_type = decl.type_declared if decl is not None else ""
