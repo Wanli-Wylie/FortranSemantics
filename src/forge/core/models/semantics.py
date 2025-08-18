@@ -1,6 +1,6 @@
 from pydantic import BaseModel, Field
 
-from forge.data_models.fortran import FortranDeclaredEntity, FortranDerivedTypeDefinition, SymbolReferenceRead, FunctionCall, IOCall, SymbolReferenceWrite, SubroutineCall, Signature    
+from fpyevolve_core.models.fortran import FortranDeclaredEntity, FortranDerivedTypeDefinition, SymbolReferenceRead, FunctionCall, IOCall, SymbolReferenceWrite, SubroutineCall, Signature    
 
 class ModuleSemantics(BaseModel):
     symbol_table: dict[str, FortranDeclaredEntity] = Field(

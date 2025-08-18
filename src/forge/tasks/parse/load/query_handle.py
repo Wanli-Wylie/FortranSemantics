@@ -1,12 +1,12 @@
 from sqlalchemy.orm.session import Session
 from sqlalchemy.orm.util import aliased
-from ...keys import (
+from fpyevolve_core.keys.fortran import (
     SubprogramKey,
     ModuleKey,
     SubprogramDeclKey,
     ModuleDeclKey,
 )
-from ..schema.fortrans import (
+from fpyevolve_core.db.schema.fortrans import (
     FortranSubprogram,
     FortranUse,
     FortranSymbol,
@@ -17,13 +17,13 @@ from ..schema.fortrans import (
     FortranCall,
     FortranModule,
 )
-from ...data_models.fortran import (
+from fpyevolve_core.models.fortran import (
     SymbolReferenceRead,
     SymbolReferenceWrite,
     SubroutineCall,
     FortranDeclaredEntity,
 )
-from ...data_models.fortran.attr_spec import AttrSpec, ArraySpec
+from fpyevolve_core.models.fortran.attr_spec import AttrSpec, ArraySpec
 import json
 from typing import Iterable, Tuple, Optional
 

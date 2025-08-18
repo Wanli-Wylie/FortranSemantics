@@ -1,6 +1,6 @@
 from fparser.two.Fortran2003 import Entity_Decl, Type_Declaration_Stmt, Entity_Decl_List
-from .....data_models.fortran.attr_spec import AttrSpec
-from .....data_models.fortran import FortranDeclaredEntity
+from fpyevolve_core.models.fortran.attr_spec import AttrSpec
+from fpyevolve_core.models.fortran import FortranDeclaredEntity
 from ..attrs.process_array_spec import process_array_spec
 from ..attrs.process_type_spec import process_type_spec
 from ..attrs.process_attr_specs import process_attr_specs

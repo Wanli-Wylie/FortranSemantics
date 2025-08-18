@@ -4,7 +4,7 @@ from fparser.two.Fortran2003 import (
 )
 from forge.tasks.parse.transform.attrs.process_attr_specs import process_attr_specs
 from tests.helpers import parse_fortran_to_ast, insert_content_into_module
-from forge.data_models.fortran.attr_spec import DimKind
+from fpyevolve_core.models.fortran.attr_spec import DimKind
 
 def create_attr_spec_from_declaration(decl_str: str) -> Attr_Spec_List:
     """Helper function to create attribute specification from a declaration string"""

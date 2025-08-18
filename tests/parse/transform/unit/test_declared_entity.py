@@ -3,7 +3,7 @@ from fparser.two.Fortran2003 import (
 )
 from forge.tasks.parse.transform.unit.declared_entity import from_entity_decl
 from tests.helpers import parse_fortran_to_ast, insert_content_into_module
-from forge.data_models.fortran.attr_spec import DimKind, AttrSpec
+from fpyevolve_core.models.fortran.attr_spec import DimKind, AttrSpec
 
 def create_entity_decl_from_declaration(decl_str: str) -> Entity_Decl:
     """Helper function to create entity declaration from a declaration string"""

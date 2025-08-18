@@ -19,6 +19,7 @@ from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 import datetime as _dt
 import pickle
+import json
 
 import typer
 from pydantic import BaseModel, Field
@@ -111,6 +112,7 @@ def transform(
 
             def handle_module(mod: Module) -> None:
                 name = str(mod.content[0].items[1])
+                print(f"Processing module: {name}")
                 modulesem = ModuleSemantics(
                     symbol_table=SymbolTableTransformer.from_module(mod),
                     derived_types=DerivedTypeDefinitionTableTransformer.from_module(mod),
@@ -119,7 +121,7 @@ def transform(
                     used_modules=sorted(UsedModulesTransformer.from_module(mod)),
                 )
                 semantics.modules[name] = modulesem
-
+                
                 for sp in get_subprogram_part(mod):
                     handle_subprogram(sp, name)
 
@@ -146,7 +148,8 @@ def transform(
                     handle_subprogram(node)
 
             json_path.parent.mkdir(parents=True, exist_ok=True)
-            json_path.write_text(semantics.model_dump_json(), encoding="utf-8")
+            with open(json_path, "w") as f:
+                json.dump(semantics.model_dump(), f, indent=4)
             return (rel, json_path, None)
         except Exception as exc:  # pragma: no cover - best effort
             return (rel, None, str(exc))

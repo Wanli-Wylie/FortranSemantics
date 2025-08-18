@@ -1,5 +1,5 @@
 from fparser.two.Fortran2003 import Subroutine_Subprogram, Function_Subprogram, Subroutine_Stmt, Function_Stmt, Module
-from .....data_models.fortran import Signature, FormalParameter, FortranDeclaredEntity
+from fpyevolve_core.models.fortran import Signature, FormalParameter, FortranDeclaredEntity
 from ..utils import get_specification_part
 from .symbol_table import SymbolTableTransformer
 from .base import BaseTableTransformer

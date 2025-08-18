@@ -5,7 +5,7 @@ from fparser.two.Fortran2003 import (
     Array_Spec
 )
 from typing import List
-from .....data_models.fortran.attr_spec import DimensionSpec, DimKind, ArraySpec
+from fpyevolve_core.models.fortran.attr_spec import DimensionSpec, DimKind, ArraySpec
 
 def process_array_spec(array_spec: Array_Spec) -> ArraySpec:
     """Process array specification and return dimension information list"""

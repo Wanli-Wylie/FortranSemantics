@@ -9,7 +9,10 @@ from fparser.two.Fortran2003 import (
     Implicit_Part,
 )
 
-from .....data_models.fortran import FunctionCall, SubroutineCall
+from fpyevolve_core.models.fortran import (
+    FunctionCall,
+    SubroutineCall,
+)
 
 from ..unit.calls import from_call_stmt
 from ..utils import get_specification_part, get_execution_part, is_iterable

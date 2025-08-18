@@ -5,7 +5,7 @@ from fparser.two.Fortran2003 import (
     Intent_Attr_Spec, 
 )
 from .process_array_spec import process_array_spec
-from .....data_models.fortran.attr_spec import AttrSpec
+from fpyevolve_core.models.fortran.attr_spec import AttrSpec
 
 def process_attr_specs(attr_specs: Attr_Spec_List) -> AttrSpec:
     """Process attribute specification list and return attribute dictionary"""

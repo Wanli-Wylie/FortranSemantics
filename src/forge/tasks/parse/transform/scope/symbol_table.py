@@ -1,5 +1,5 @@
 from fparser.two.Fortran2003 import Subroutine_Subprogram, Function_Subprogram, Module, Specification_Part, Type_Declaration_Stmt, Implicit_Part
-from .....data_models.fortran import FortranDeclaredEntity
+from fpyevolve_core.models.fortran import FortranDeclaredEntity
 from ..unit.declared_entity import from_type_declaration_stmt
 from ..utils import get_specification_part, is_iterable
 from collections import deque

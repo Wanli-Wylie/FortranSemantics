@@ -50,6 +50,7 @@ dependencies = [
     "pytest",
     "fparser",
     "dataclasses_json",
+    "fpyevolve-core @ git+https://github.com/Wanli-Wylie/fpyevolve-core.git"
 
 ]
 

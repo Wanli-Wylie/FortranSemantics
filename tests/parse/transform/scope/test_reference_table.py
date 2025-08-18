@@ -1,5 +1,5 @@
 from forge.tasks.parse.transform.scope.reference_table import ReferenceTableTransformer
-from forge.data_models.fortran import SymbolReferenceRead, SymbolReferenceWrite
+from fpyevolve_core.models.fortran import SymbolReferenceRead, SymbolReferenceWrite
 from tests.helpers import parse_fortran_to_ast
 
 

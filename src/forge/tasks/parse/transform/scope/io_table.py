@@ -14,7 +14,7 @@ from fparser.two.Fortran2003 import (
     Call_Stmt,
 )
 
-from .....data_models.fortran import IOCall
+from fpyevolve_core.models.fortran import IOCall
 from ..unit.io_calls import (
     from_open_stmt,
     from_close_stmt,

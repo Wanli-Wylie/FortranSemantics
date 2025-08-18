@@ -6,7 +6,7 @@ from fparser.two.Fortran2003 import (
 )
 from forge.tasks.parse.transform.attrs.process_array_spec import process_array_spec
 from tests.helpers import parse_fortran_to_ast, insert_content_into_module
-from forge.data_models.fortran.attr_spec import DimKind
+from fpyevolve_core.models.fortran.attr_spec import DimKind
 
 def create_array_spec_from_declaration(decl_str: str) -> Array_Spec:
     """Helper function to create array spec from a declaration string"""

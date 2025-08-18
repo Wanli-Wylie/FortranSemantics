@@ -2,7 +2,7 @@ import pytest
 from tests.helpers import parse_fortran_to_ast
 from forge.tasks.parse.transform.scope.call_table import CallTableTransformer
 from forge.tasks.parse.transform.unit.calls import from_call_stmt
-from forge.data_models.fortran import SymbolReferenceRead
+from fpyevolve_core.models.fortran import SymbolReferenceRead
 
 
 def _get_subprogram_ast():

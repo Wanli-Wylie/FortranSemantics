@@ -10,7 +10,7 @@ from fparser.two.Fortran2003 import (
     Call_Stmt,
     Format,
 )
-from .....data_models.fortran import IOCall, SymbolReferenceRead, SymbolReferenceWrite
+from fpyevolve_core.models.fortran import IOCall, SymbolReferenceRead, SymbolReferenceWrite
 from .reference_entry import from_expression, from_designator
 from ..utils import get_line_number, is_iterable, get_name_from_node
 

@@ -5,7 +5,7 @@ from fparser.two.Fortran2003 import (
     Assignment_Stmt,
     Implicit_Part)
 from collections import deque
-from .....data_models.fortran.reference_entry import (
+from fpyevolve_core.models.fortran.reference_entry import (
     SymbolReferenceRead,
     SymbolReferenceWrite,
 )

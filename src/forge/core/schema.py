@@ -4,7 +4,6 @@ from pathlib import Path
 import sqlite3
 
 from sqlalchemy import (
-    create_engine,
     Column,
     Integer,
     String,
@@ -16,7 +15,7 @@ from sqlalchemy import (
     event,
     Index,
 )
-from sqlalchemy.orm import DeclarativeBase, relationship, sessionmaker
+from sqlalchemy.orm import DeclarativeBase, relationship
 from sqlalchemy.engine import Engine
 
 # Enable PRAGMA foreign_keys=ON for SQLite

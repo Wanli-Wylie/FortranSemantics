@@ -16,7 +16,7 @@ from fparser.two.Fortran2003 import (
     Intrinsic_Function_Reference,
     Level_2_Unary_Expr,
     Name)
-from .....data_models.fortran import (
+from fpyevolve_core.models.fortran import (
     SymbolReferenceRead,
     SymbolReferenceWrite,
 )

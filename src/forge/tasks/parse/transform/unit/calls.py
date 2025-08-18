@@ -1,6 +1,6 @@
 """Construct :class:`SubroutineCall` domain objects from AST nodes."""
 
-from .....data_models.fortran import SubroutineCall, SymbolReferenceRead
+from fpyevolve_core.models.fortran import SubroutineCall, SymbolReferenceRead
 from fparser.two.Fortran2003 import Call_Stmt
 
 from .reference_entry import from_expression

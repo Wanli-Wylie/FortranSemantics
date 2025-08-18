@@ -1,7 +1,7 @@
 from fparser.two.Fortran2003 import (
     Module, Subroutine_Subprogram, Function_Subprogram, Specification_Part,
     Derived_Type_Def, Implicit_Part)
-from .....data_models.fortran import FortranDerivedTypeDefinition
+from fpyevolve_core.models.fortran import FortranDerivedTypeDefinition
 from ..unit.derived_type_definition import from_derived_type_definition
 from ..utils import get_specification_part, is_iterable
 from collections import deque

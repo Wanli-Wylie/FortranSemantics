@@ -21,7 +21,8 @@ from ..schema.fortrans import (
     SymbolReferenceType,
 )
 from ...keys import ModuleKey, SubprogramKey
-from ...data_models.fortran import (
+
+from fpyevolve_core.models.fortran import (
     FortranDeclaredEntity,
     FortranDerivedTypeDefinition,
     FunctionCall,

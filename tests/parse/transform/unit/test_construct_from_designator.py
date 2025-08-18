@@ -1,7 +1,7 @@
 import pytest
 from tests.helpers import parse_fortran_to_ast
 from forge.tasks.parse.transform.unit.reference_entry import from_designator
-from forge.data_models.fortran import (
+from fpyevolve_core.models.fortran import (
     SymbolReferenceRead,
     SymbolReferenceWrite
 )

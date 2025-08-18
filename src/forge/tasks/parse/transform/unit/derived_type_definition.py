@@ -1,6 +1,6 @@
 from fparser.two.Fortran2003 import Component_Decl, Data_Component_Def_Stmt, Derived_Type_Def, Component_Decl_List
-from .....data_models.fortran.attr_spec import AttrSpec
-from .....data_models.fortran import FortranDeclaredComponent, FortranDerivedTypeDefinition
+from fpyevolve_core.models.fortran.attr_spec import AttrSpec
+from fpyevolve_core.models.fortran import FortranDeclaredComponent, FortranDerivedTypeDefinition
 from ..attrs.process_array_spec import process_array_spec
 from ..attrs.process_type_spec import process_type_spec
 from ..attrs.process_attr_specs import process_attr_specs
