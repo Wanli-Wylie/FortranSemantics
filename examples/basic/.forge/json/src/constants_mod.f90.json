@@ -1,0 +1,78 @@
+{
+    "modules": {
+        "constants_mod": {
+            "symbol_table": {
+                "pi": {
+                    "name": "pi",
+                    "line_declared": 9,
+                    "type_declared": "REAL",
+                    "attributes": {
+                        "array_spec": null,
+                        "intent": null,
+                        "additional_keywords": [
+                            "parameter"
+                        ]
+                    },
+                    "initial_value": "3.141592653589793"
+                },
+                "constants": {
+                    "name": "constants",
+                    "line_declared": 19,
+                    "type_declared": "TYPE-CONSTANTS_T",
+                    "attributes": {
+                        "array_spec": null,
+                        "intent": null,
+                        "additional_keywords": [
+                            "save"
+                        ]
+                    },
+                    "initial_value": "constants_t()"
+                }
+            },
+            "derived_types": {
+                "constants_t": {
+                    "name": "constants_t",
+                    "declared_components": {
+                        "ln2": {
+                            "name": "ln2",
+                            "line_declared": 13,
+                            "type_declared": "REAL",
+                            "attributes": {
+                                "array_spec": null,
+                                "intent": null,
+                                "additional_keywords": null
+                            },
+                            "initial_value": "0.693147180559945"
+                        },
+                        "e": {
+                            "name": "e",
+                            "line_declared": 14,
+                            "type_declared": "REAL",
+                            "attributes": {
+                                "array_spec": null,
+                                "intent": null,
+                                "additional_keywords": null
+                            },
+                            "initial_value": "2.718281828459045"
+                        },
+                        "g": {
+                            "name": "g",
+                            "line_declared": 15,
+                            "type_declared": "REAL",
+                            "attributes": {
+                                "array_spec": null,
+                                "intent": null,
+                                "additional_keywords": null
+                            },
+                            "initial_value": "9.80665"
+                        }
+                    }
+                }
+            },
+            "references": [],
+            "calls": [],
+            "used_modules": []
+        }
+    },
+    "subprograms": {}
+}

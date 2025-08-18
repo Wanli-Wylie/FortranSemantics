@@ -1,0 +1,243 @@
+{
+    "modules": {
+        "physics_mod": {
+            "symbol_table": {},
+            "derived_types": {},
+            "references": [],
+            "calls": [],
+            "used_modules": [
+                "constants_mod",
+                "geometry_mod",
+                "vector_mod"
+            ]
+        }
+    },
+    "subprograms": {
+        "physics_mod::force_pressure": {
+            "symbol_table": {
+                "p": {
+                    "name": "p",
+                    "line_declared": 12,
+                    "type_declared": "REAL",
+                    "attributes": {
+                        "array_spec": null,
+                        "intent": "in",
+                        "additional_keywords": []
+                    },
+                    "initial_value": null
+                },
+                "r": {
+                    "name": "r",
+                    "line_declared": 13,
+                    "type_declared": "REAL",
+                    "attributes": {
+                        "array_spec": null,
+                        "intent": "in",
+                        "additional_keywords": []
+                    },
+                    "initial_value": null
+                }
+            },
+            "derived_types": {},
+            "references": [
+                {
+                    "name": "f",
+                    "line": 14,
+                    "resolved_symbol": "",
+                    "is_part_ref": false,
+                    "component_name": null
+                },
+                {
+                    "name": "r",
+                    "line": 14,
+                    "resolved_symbol": "",
+                    "is_part_ref": false,
+                    "component_name": null
+                },
+                {
+                    "name": "area_circle",
+                    "line": 14,
+                    "resolved_symbol": "",
+                    "is_part_ref": true,
+                    "component_name": null
+                },
+                {
+                    "name": "p",
+                    "line": 14,
+                    "resolved_symbol": "",
+                    "is_part_ref": false,
+                    "component_name": null
+                }
+            ],
+            "calls": [],
+            "ios": [],
+            "signature": {
+                "inputs": {
+                    "p": {
+                        "name": "p",
+                        "type": "REAL"
+                    },
+                    "r": {
+                        "name": "r",
+                        "type": "REAL"
+                    }
+                },
+                "output": {
+                    "name": "f",
+                    "type": "REAL"
+                },
+                "result_var_same_as_name": false
+            },
+            "used_modules": []
+        },
+        "physics_mod::kinetic_energy": {
+            "symbol_table": {
+                "m": {
+                    "name": "m",
+                    "line_declared": 18,
+                    "type_declared": "REAL",
+                    "attributes": {
+                        "array_spec": null,
+                        "intent": "in",
+                        "additional_keywords": []
+                    },
+                    "initial_value": null
+                },
+                "v": {
+                    "name": "v",
+                    "line_declared": 19,
+                    "type_declared": "REAL",
+                    "attributes": {
+                        "array_spec": null,
+                        "intent": "in",
+                        "additional_keywords": []
+                    },
+                    "initial_value": null
+                }
+            },
+            "derived_types": {},
+            "references": [
+                {
+                    "name": "ke",
+                    "line": 20,
+                    "resolved_symbol": "",
+                    "is_part_ref": false,
+                    "component_name": null
+                },
+                {
+                    "name": "v",
+                    "line": 20,
+                    "resolved_symbol": "",
+                    "is_part_ref": false,
+                    "component_name": null
+                },
+                {
+                    "name": "m",
+                    "line": 20,
+                    "resolved_symbol": "",
+                    "is_part_ref": false,
+                    "component_name": null
+                }
+            ],
+            "calls": [],
+            "ios": [],
+            "signature": {
+                "inputs": {
+                    "m": {
+                        "name": "m",
+                        "type": "REAL"
+                    },
+                    "v": {
+                        "name": "v",
+                        "type": "REAL"
+                    }
+                },
+                "output": {
+                    "name": "ke",
+                    "type": "REAL"
+                },
+                "result_var_same_as_name": false
+            },
+            "used_modules": []
+        },
+        "physics_mod::potential_energy": {
+            "symbol_table": {
+                "m": {
+                    "name": "m",
+                    "line_declared": 24,
+                    "type_declared": "REAL",
+                    "attributes": {
+                        "array_spec": null,
+                        "intent": "in",
+                        "additional_keywords": []
+                    },
+                    "initial_value": null
+                },
+                "h": {
+                    "name": "h",
+                    "line_declared": 25,
+                    "type_declared": "REAL",
+                    "attributes": {
+                        "array_spec": null,
+                        "intent": "in",
+                        "additional_keywords": []
+                    },
+                    "initial_value": null
+                }
+            },
+            "derived_types": {},
+            "references": [
+                {
+                    "name": "pe",
+                    "line": 26,
+                    "resolved_symbol": "",
+                    "is_part_ref": false,
+                    "component_name": null
+                },
+                {
+                    "name": "h",
+                    "line": 26,
+                    "resolved_symbol": "",
+                    "is_part_ref": false,
+                    "component_name": null
+                },
+                {
+                    "name": "constants",
+                    "line": 26,
+                    "resolved_symbol": "",
+                    "is_part_ref": false,
+                    "component_name": [
+                        "g"
+                    ]
+                },
+                {
+                    "name": "m",
+                    "line": 26,
+                    "resolved_symbol": "",
+                    "is_part_ref": false,
+                    "component_name": null
+                }
+            ],
+            "calls": [],
+            "ios": [],
+            "signature": {
+                "inputs": {
+                    "m": {
+                        "name": "m",
+                        "type": "REAL"
+                    },
+                    "h": {
+                        "name": "h",
+                        "type": "REAL"
+                    }
+                },
+                "output": {
+                    "name": "pe",
+                    "type": "REAL"
+                },
+                "result_var_same_as_name": false
+            },
+            "used_modules": []
+        }
+    }
+}

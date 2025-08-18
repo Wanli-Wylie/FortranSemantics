@@ -1,0 +1,70 @@
+{
+    "modules": {
+        "geometry_mod": {
+            "symbol_table": {},
+            "derived_types": {},
+            "references": [],
+            "calls": [],
+            "used_modules": [
+                "constants_mod"
+            ]
+        }
+    },
+    "subprograms": {
+        "geometry_mod::area_circle": {
+            "symbol_table": {
+                "radius": {
+                    "name": "radius",
+                    "line_declared": 14,
+                    "type_declared": "REAL",
+                    "attributes": {
+                        "array_spec": null,
+                        "intent": "in",
+                        "additional_keywords": []
+                    },
+                    "initial_value": null
+                }
+            },
+            "derived_types": {},
+            "references": [
+                {
+                    "name": "a",
+                    "line": 15,
+                    "resolved_symbol": "",
+                    "is_part_ref": false,
+                    "component_name": null
+                },
+                {
+                    "name": "radius",
+                    "line": 15,
+                    "resolved_symbol": "",
+                    "is_part_ref": false,
+                    "component_name": null
+                },
+                {
+                    "name": "pi",
+                    "line": 15,
+                    "resolved_symbol": "",
+                    "is_part_ref": false,
+                    "component_name": null
+                }
+            ],
+            "calls": [],
+            "ios": [],
+            "signature": {
+                "inputs": {
+                    "radius": {
+                        "name": "radius",
+                        "type": "REAL"
+                    }
+                },
+                "output": {
+                    "name": "a",
+                    "type": "REAL"
+                },
+                "result_var_same_as_name": false
+            },
+            "used_modules": []
+        }
+    }
+}
